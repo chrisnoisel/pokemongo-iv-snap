@@ -2,6 +2,20 @@
 
 DIR=$(dirname "$0")
 IMG="$DIR/screen.png"
+PKMN_FILE="pkmns"
+
+while getopts "l:" option
+do
+    case $option in
+        l)
+					if [ "$OPTARG" == "fr" ]; 
+					then
+					PKMN_FILE="pkmns_fr"
+    			fi
+    		;;
+    esac
+done
+
 
 if [ ! -n "$(which bc)" ]
 then
@@ -63,7 +77,7 @@ CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulat
 HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
 dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
 pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d " 0123456789+")
-pkmID=$(grep -i " $pkmName$" "$DIR/pkmns" | cut -d " " -f 1)
+pkmID=$(grep -i " $pkmName$" "$DIR/$PKMN_FILE" | cut -d " " -f 1)
 
 echo "$pkmName id:$pkmID cp:$CP hp:$HP dust:$dust"
 
