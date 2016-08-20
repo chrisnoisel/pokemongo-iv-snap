@@ -58,7 +58,7 @@ then
 fi
 
 # crop -> grayscale -> levels -> negate
-CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 95%,100% -negate -negate png:- | tesseract -c tessedit_char_whitelist=CP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
+CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 95%,100% -negate png:- | tesseract -c tessedit_char_whitelist=CP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
 
 HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
 dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
