@@ -38,7 +38,7 @@ x$(inkscape -z -f "$DIR/template.svg" -I $r -H)\
 if [ ! -n "$(which adb)" ]
 then
 	echo "adb not present, using $DIR/screen.png" 1>&2
-elif [ $(adb devices | wc -l) -lt 3 ]
+elif [ $(adb devices | grep -E "^[a-f0-9]{16}" | wc -l) -lt 1 ]
 then
 	echo "no device attached." 1>&2
 else
