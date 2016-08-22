@@ -38,7 +38,7 @@ x$(inkscape -z -f "$DIR/template.svg" -I $r -H)\
 if [ ! -n "$(which adb)" ]
 then
 	echo "adb not present, using $DIR/screen.png" 1>&2
-elif [ $(adb devices | wc -l) -lt 3 ]
+elif [ $(adb devices | grep -E "^[a-f0-9]{16}" | wc -l) -lt 1 ]
 then
 	echo "no device attached." 1>&2
 else
@@ -58,21 +58,25 @@ then
 fi
 
 # crop -> grayscale -> levels -> negate
-CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 95%,100% -negate png:- | tesseract -c tessedit_char_whitelist=CP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
+
+
+CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 99%,100% -negate png:- | tesseract -c tessedit_char_whitelist=cpCP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
 
 HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
-dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | tr "oO" "00" | grep -Eo "[0-9]+")
-pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d " 0123456789+")
-pkmID=$(grep -i " $pkmName$" "$DIR/pkmns" | cut -d " " -f 1)
+dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
+pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d "0123456789+")
+pkmID=$(grep -Ei ",$pkmName($|,)" "$DIR/pkmns" | cut -d "," -f 1)
 
 echo "$pkmName id:$pkmID cp:$CP hp:$HP dust:$dust"
 
+URL="https://pokemon.gameinfo.io/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
+
 if [ -n "$(which iceweasel)" ]
 then
-	iceweasel "https://pokemon.gameinfo.io/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1" 2>>/dev/null
+	iceweasel "$URL" 2>>/dev/null
 elif [ -x /Applications/Chromium.app/Contents/MacOS/Chromium ]
 then
-	/Applications/Chromium.app/Contents/MacOS/Chromium "https://pokemon.gameinfo.io/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
+	/Applications/Chromium.app/Contents/MacOS/Chromium "$URL"
 else
-	echo "https://pokemon.gameinfo.io/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
+	echo "$URL"
 fi
