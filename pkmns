@@ -1,151 +1,151 @@
-1 Bulbasaur
-2 Ivysaur
-3 Venusaur
-4 Charmander
-5 Charmeleon
-6 Charizard
-7 Squirtle
-8 Wartortle
-9 Blastoise
-10 Caterpie
-11 Metapod
-12 Butterfree
-13 Weedle
-14 Kakuna
-15 Beedrill
-16 Pidgey
-17 Pidgeotto
-18 Pidgeot
-19 Rattata
-20 Raticate
-21 Spearow
-22 Fearow
-23 Ekans
-24 Arbok
-25 Pikachu
-26 Raichu
-27 Sandshrew
-28 Sandslash
-29 Nidoran♀ Nidoran?
-30 Nidorina
-31 Nidoqueen
-32 Nidoran♂ Nidorand
-33 Nidorino
-34 Nidoking
-35 Clefairy
-36 Clefable
-37 Vulpix
-38 Ninetales
-39 Jigglypuff
-40 Wigglytuff
-41 Zubat
-42 Golbat
-43 Oddish
-44 Gloom
-45 Vileplume
-46 Paras
-47 Parasect
-48 Venonat
-49 Venomoth
-50 Diglett
-51 Dugtrio
-52 Meowth
-53 Persian
-54 Psyduck
-55 Golduck
-56 Mankey
-57 Primeape
-58 Growlithe
-59 Arcanine
-60 Poliwag
-61 Poliwhirl
-62 Poliwrath
-63 Abra
-64 Kadabra
-65 Alakazam
-66 Machop
-67 Machoke
-68 Machamp
-69 Bellsprout
-70 Weepinbell
-71 Victreebel
-72 Tentacool
-73 Tentacruel
-74 Geodude
-75 Graveler
-76 Golem
-77 Ponyta
-78 Rapidash
-79 Slowpoke
-80 Slowbro
-81 Magnemite
-82 Magneton
-83 Farfetch'd
-84 Doduo
-85 Dodrio
-86 Seel
-87 Dewgong
-88 Grimer
-89 Muk
-90 Shellder
-91 Cloyster
-92 Gastly
-93 Haunter
-94 Gengar
-95 Onix
-96 Drowzee
-97 Hypno
-98 Krabby
-99 Kingler
-100 Voltorb
-101 Electrode
-102 Exeggcute
-103 Exeggutor
-104 Cubone
-105 Marowak
-106 Hitmonlee
-107 Hitmonchan
-108 Lickitung
-109 Koffing
-110 Weezing
-111 Rhyhorn
-112 Rhydon
-113 Chansey
-114 Tangela
-115 Kangaskhan
-116 Horsea
-117 Seadra
-118 Goldeen
-119 Seaking
-120 Staryu
-121 Starmie
-122 Mr.Mime
-123 Scyther
-124 Jynx
-125 Electabuzz
-126 Magmar
-127 Pinsir
-128 Tauros
-129 Magikarp
-130 Gyarados
-131 Lapras
-132 Ditto
-133 Eevee
-134 Vaporeon
-135 Jolteon
-136 Flareon
-137 Porygon
-138 Omanyte
-139 Omastar
-140 Kabuto
-141 Kabutops
-142 Aerodactyl
-143 Snorlax
-144 Articuno
-145 Zapdos
-146 Moltres
-147 Dratini
-148 Dragonair
-149 Dragonite
-150 Mewtwo
-151 Mew
+001,Bisasam,Bulbasaur,Bulbizarre,フシギダネ,Fushigidane,이상해씨,Isanghaessi
+002,Bisaknosp,Ivysaur,Herbizarre,フシギソウ,Fushigisou,이상해풀,Isanghaepul
+003,Bisaflor,Venusaur,Florizarre,フシギバナ,Fushigibana,이상해꽃,Isanghaekkot
+004,Glumanda,Charmander,Salamèche,ヒトカゲ,Hitokage,파이리,Pairi
+005,Glutexo,Charmeleon,Reptincel,リザード,Lizardo,리자드,Rijadeu
+006,Glurak,Charizard,Dracaufeu,リザードン,Lizardon,리자몽,Rijamong
+007,Schiggy,Squirtle,Carapuce,ゼニガメ,Zenigame,꼬부기,Kkobugi
+008,Schillok,Wartortle,Carabaffe,カメール,Kameil,어니부기,Eonibugi
+009,Turtok,Blastoise,Tortank,カメックス,Kamex,거북왕,Geobukwang
+010,Raupy,Caterpie,Chenipan,キャタピー,Caterpie,캐터피,Kaeteopi
+011,Safcon,Metapod,Chrysacier,トランセル,Trancell,단데기,Dandegi
+012,Smettbo,Butterfree,Papilusion,バタフリー,Butterfree,버터플,Beoteopeul
+013,Hornliu,Weedle,Aspicot,ビードル,Beedle,뿔충이,Ppulchungi
+014,Kokuna,Kakuna,Coconfort,コクーン,Cocoon,딱충이,Ttakchungi
+015,Bibor,Beedrill,Dardargnan,スピアー,Spear,독침붕,Dokchimbung
+016,Taubsi,Pidgey,Roucool,ポッポ,Poppo,구구,Gugu
+017,Tauboga,Pidgeotto,Roucoups,ピジョン,Pigeon,피죤,Pijyon
+018,Tauboss,Pidgeot,Roucarnage,ピジョット,Pigeot,피죤투,Pijyontu
+019,Rattfratz,Rattata,Rattata,コラッタ,Koratta,꼬렛,Kkoret
+020,Rattikarl,Raticate,Rattatac,ラッタ,Ratta,레트라,Reteura
+021,Habitak,Spearow,Piafabec,オニスズメ,Onisuzume,깨비참,Kkaebicham
+022,Ibitak,Fearow,Rapasdepic,オニドリル,Onidrill,깨비드릴조,Kkaebideuriljo
+023,Rettan,Ekans,Abo,アーボ,Arbo,아보,Abo
+024,Arbok,Arbok,Arbok,アーボック,Arbok,아보크,Abokeu
+025,Pikachu,Pikachu,Pikachu,ピカチュウ,Pikachu,피카츄,Pikachyu
+026,Raichu,Raichu,Raichu,ライチュウ,Raichu,라이츄,Raichyu
+027,Sandan,Sandshrew,Sabelette,サンド,Sand,모래두지,Moraeduji
+028,Sandamer,Sandslash,Sablaireau,サンドパン,Sandpan,고지,Goji
+029,Nidoran♀,Nidoran♀,Nidoran♀,ニドラン♀,Nidoran♀,니드런♀,Nideureon♀,Nidoran?,Nideureon
+030,Nidorina,Nidorina,Nidorina,ニドリーナ,Nidorina,니드리나,Nideurina
+031,Nidoqueen,Nidoqueen,Nidoqueen,ニドクイン,Nidoqueen,니드퀸,Nideukwin
+032,Nidoran♂,Nidoran♂,Nidoran♂,ニドラン♂,Nidoran♂,니드런♂,Nideureon♂,Nidorand,Nideureond
+033,Nidorino,Nidorino,Nidorino,ニドリーノ,Nidorino,니드리노,Nideurino
+034,Nidoking,Nidoking,Nidoking,ニドキング,Nidoking,니드킹,Nideuking
+035,Piepi,Clefairy,Mélofée,ピッピ,Pippi,삐삐,Ppippi
+036,Pixi,Clefable,Mélodelfe,ピクシー,Pixy,픽시,Piksi
+037,Vulpix,Vulpix,Goupix,ロコン,Rokon,식스테일,Sikseuteil
+038,Vulnona,Ninetales,Feunard,キュウコン,Kyukon,나인테일,Nainteil
+039,Pummeluff,Jigglypuff,Rondoudou,プリン,Purin,푸린,Purin
+040,Knuddeluff,Wigglytuff,Grodoudou,プクリン,Pukurin,푸크린,Pukeurin
+041,Zubat,Zubat,Nosferapti,ズバット,Zubat,주뱃,Jubaet
+042,Golbat,Golbat,Nosferalto,ゴルバット,Golbat,골뱃,Golbaet
+043,Myrapla,Oddish,Mystherbe,ナゾノクサ,Nazonokusa,뚜벅쵸,Ttubeokchyo
+044,Duflor,Gloom,Ortide,クサイハナ,Kusaihana,냄새꼬,Naemsaekko
+045,Giflor,Vileplume,Rafflesia,ラフレシア,Ruffresia,라플레시아,Rapeullesia
+046,Paras,Paras,Paras,パラス,Paras,파라스,Paraseu
+047,Parasek,Parasect,Parasect,パラセクト,Parasect,파라섹트,Parasekteu
+048,Bluzuk,Venonat,Mimitoss,コンパン,Kongpang,콘팡,Konpang
+049,Omot,Venomoth,Aéromite,モルフォン,Morphon,도나리,Donari
+050,Digda,Diglett,Taupiqueur,ディグダ,Digda,디그다,Digeuda
+051,Digdri,Dugtrio,Triopikeur,ダグトリオ,Dugtrio,닥트리오,Dakteurio
+052,Mauzi,Meowth,Miaouss,ニャース,Nyarth,나옹,Naong
+053,Snobilikat,Persian,Persian,ペルシアン,Persian,페르시온,Pereusion
+054,Enton,Psyduck,Psykokwak,コダック,Koduck,고라파덕,Gorapadeok
+055,Entoron,Golduck,Akwakwak,ゴルダック,Golduck,골덕,Goldeok
+056,Menki,Mankey,Férosinge,マンキー,Mankey,망키,Mangki
+057,Rasaff,Primeape,Colossinge,オコリザル,Okorizaru,성원숭,Seongwonsung
+058,Fukano,Growlithe,Caninos,ガーディ,Gardie,가디,Gadi
+059,Arkani,Arcanine,Arcanin,ウインディ,Windie,윈디,Windi
+060,Quapsel,Poliwag,Ptitard,ニョロモ,Nyoromo,발챙이,Balchaengi
+061,Quaputzi,Poliwhirl,Têtarte,ニョロゾ,Nyorozo,슈륙챙이,Suryukchaengi
+062,Quappo,Poliwrath,Tartard,ニョロボン,Nyorobon,강챙이,Gangchaengi
+063,Abra,Abra,Abra,ケーシィ,Casey,캐이시,Kaeisi
+064,Kadabra,Kadabra,Kadabra,ユンゲラー,Yungerer,윤겔라,Yun-gella
+065,Simsala,Alakazam,Alakazam,フーディン,Foodin,후딘,Hudin
+066,Machollo,Machop,Machoc,ワンリキー,Wanriky,알통몬,Altongmon
+067,Maschock,Machoke,Machopeur,ゴーリキー,Goriky,근육몬,Geunyungmon
+068,Machomei,Machamp,Mackogneur,カイリキー,Kairiky,괴력몬,Goeryeokmon
+069,Knofensa,Bellsprout,Chétiflor,マダツボミ,Madatsubomi,모다피,Modapi
+070,Ultrigaria,Weepinbell,Boustiflor,ウツドン,Utsudon,우츠동,Ucheudong
+071,Sarzenia,Victreebel,Empiflor,ウツボット,Utsubot,우츠보트,Ucheuboteu
+072,Tentacha,Tentacool,Tentacool,メノクラゲ,Menokurage,왕눈해,Wangnunhae
+073,Tentoxa,Tentacruel,Tentacruel,ドククラゲ,Dokukurage,독파리,Dokpari
+074,Kleinstein,Geodude,Racaillou,イシツブテ,Ishitsubute,꼬마돌,Kkomadol
+075,Georok,Graveler,Gravalanch,ゴローン,Golone,데구리,Deguri
+076,Geowaz,Golem,Grolem,ゴローニャ,Golonya,딱구리,Ttakguri
+077,Ponita,Ponyta,Ponyta,ポニータ,Ponyta,포니타,Ponita
+078,Gallopa,Rapidash,Galopa,ギャロップ,Gallop,날쌩마,Nalssaengma
+079,Flegmon,Slowpoke,Ramoloss,ヤドン,Yadon,야돈,Yadon
+080,Lahmus,Slowbro,Flagadoss,ヤドラン,Yadoran,야도란,Yadoran
+081,Magnetilo,Magnemite,Magnéti,コイル,Coil,코일,Koil
+082,Magneton,Magneton,Magnéton,レアコイル,Rarecoil,레어코일,Reeokoil
+083,Porenta,Farfetch’d,Canarticho,カモネギ,Kamonegi,파오리,Paori
+084,Dodu,Doduo,Doduo,ドードー,Dodo,두두,Dudu
+085,Dodri,Dodrio,Dodrio,ドードリオ,Dodorio,두트리오,Duteurio
+086,Jurob,Seel,Otaria,パウワウ,Pawou,쥬쥬,Jyujyu
+087,Jugong,Dewgong,Lamantine,ジュゴン,Jugon,쥬레곤,Jyuregon
+088,Sleima,Grimer,Tadmorv,ベトベター,Betbeter,질퍽이,Jilpeogi
+089,Sleimok,Muk,Grotadmorv,ベトベトン,Betbeton,질뻐기,Jilppeogi
+090,Muschas,Shellder,Kokiyas,シェルダー,Shellder,셀러,Selleo
+091,Austos,Cloyster,Crustabri,パルシェン,Parshen,파르셀,Pareusel
+092,Nebulak,Gastly,Fantominus,ゴース,Ghos,고오스,Gooseu
+093,Alpollo,Haunter,Spectrum,ゴースト,Ghost,고우스트,Gouseuteu
+094,Gengar,Gengar,Ectoplasma,ゲンガー,Gangar,팬텀,Paenteom
+095,Onix,Onix,Onix,イワーク,Iwark,롱스톤,Rongseuton
+096,Traumato,Drowzee,Soporifik,スリープ,Sleepe,슬리프,Seullipeu
+097,Hypno,Hypno,Hypnomade,スリーパー,Sleeper,슬리퍼,Seullipeo
+098,Krabby,Krabby,Krabby,クラブ,Crab,크랩,Keuraep
+099,Kingler,Kingler,Krabboss,キングラー,Kingler,킹크랩,Kingkeuraep
+100,Voltobal,Voltorb,Voltorbe,ビリリダマ,Biriridama,찌리리공,Jjiririgong
+101,Lektrobal,Electrode,Électrode,マルマイン,Marumine,붐볼,Bumbol
+102,Owei,Exeggcute,Noeunoeuf,タマタマ,Tamatama,아라리,Arari
+103,Kokowei,Exeggutor,Noadkoko,ナッシー,Nassy,나시,Nasi
+104,Tragosso,Cubone,Osselait,カラカラ,Karakara,탕구리,Tangguri
+105,Knogga,Marowak,Ossatueur,ガラガラ,Garagara,텅구리,Teongguri
+106,Kicklee,Hitmonlee,Kicklee,サワムラー,Sawamular,시라소몬,Sirasomon
+107,Nockchan,Hitmonchan,Tygnon,エビワラー,Ebiwalar,홍수몬,Hongsumon
+108,Schlurp,Lickitung,Excelangue,ベロリンガ,Beroringa,내루미,Naerumi
+109,Smogon,Koffing,Smogo,ドガース,Dogars,또가스,Ttogaseu
+110,Smogmog,Weezing,Smogogo,マタドガス,Matadogas,또도가스,Ttodogaseu
+111,Rihorn,Rhyhorn,Rhinocorne,サイホーン,Sihorn,뿔카노,Ppulkano
+112,Rizeros,Rhydon,Rhinoféros,サイドン,Sidon,코뿌리,Koppuri
+113,Chaneira,Chansey,Leveinard,ラッキー,Lucky,럭키,Reokki
+114,Tangela,Tangela,Saquedeneu,モンジャラ,Monjara,덩쿠리,Deongguri
+115,Kangama,Kangaskhan,Kangourex,ガルーラ,Garura,캥카,Kaengka
+116,Seeper,Horsea,Hypotrempe,タッツー,Tattu,쏘드라,Ssodeura
+117,Seemon,Seadra,Hypocéan,シードラ,Seadra,시드라,Sideura
+118,Goldini,Goldeen,Poissirène,トサキント,Tosakinto,콘치,Konchi
+119,Golking,Seaking,Poissoroy,アズマオウ,Azumao,왕콘치,Wangkonchi
+120,Sterndu,Staryu,Stari,ヒトデマン,Hitodeman,별가사리,Byeolgasari
+121,Starmie,Starmie,Staross,スターミー,Starmie,아쿠스타,Akuseuta
+122,Pantimos,Mr. Mime,M. Mime,バリヤード,Barrierd,마임맨,Maimmaen,Mr.Mime
+123,Sichlor,Scyther,Insécateur,ストライク,Strike,스라크,Seurakeu
+124,Rossana,Jynx,Lippoutou,ルージュラ,Rougela,루주라,Rujura
+125,Elektek,Electabuzz,Élektek,エレブー,Eleboo,에레브,Erebeu
+126,Magmar,Magmar,Magmar,ブーバー,Boober,마그마,Mageuma
+127,Pinsir,Pinsir,Scarabrute,カイロス,Kailios,쁘사이저,Ppeusaijeo
+128,Tauros,Tauros,Tauros,ケンタロス,Kentauros,켄타로스,Kentaroseu
+129,Karpador,Magikarp,Magicarpe,コイキング,Koiking,잉어킹,Ingeoking
+130,Garados,Gyarados,Léviator,ギャラドス,Gyarados,갸라도스,Gyaradoseu
+131,Lapras,Lapras,Lokhlass,ラプラス,Laplace,라프라스,Rapeuraseu
+132,Ditto,Ditto,Métamorph,メタモン,Metamon,메타몽,Metamong
+133,Evoli,Eevee,Évoli,イーブイ,Eievui,이브이,Ibeui
+134,Aquana,Vaporeon,Aquali,シャワーズ,Showers,샤미드,Syamideu
+135,Blitza,Jolteon,Voltali,サンダース,Thunders,쥬피썬더,Jyupisseondeo
+136,Flamara,Flareon,Pyroli,ブースター,Booster,부스터,Buseuteo
+137,Porygon,Porygon,Porygon,ポリゴン,Porygon,폴리곤,Polligon
+138,Amonitas,Omanyte,Amonita,オムナイト,Omnite,암나이트,Amnaiteu
+139,Amoroso,Omastar,Amonistar,オムスター,Omstar,암스타,Amseuta
+140,Kabuto,Kabuto,Kabuto,カブト,Kabuto,투구,Tugu
+141,Kabutops,Kabutops,Kabutops,カブトプス,Kabutops,투구푸스,Tugupuseu
+142,Aerodactyl,Aerodactyl,Ptéra,プテラ,Ptera,프테라,Peutera
+143,Relaxo,Snorlax,Ronflex,カビゴン,Kabigon,잠만보,Jammanbo
+144,Arktos,Articuno,Artikodin,フリーザー,Freezer,프리져,Peurijyeo
+145,Zapdos,Zapdos,Électhor,サンダー,Thunder,썬더,Sseondeo
+146,Lavados,Moltres,Sulfura,ファイヤー,Fire,파이어,Paieo
+147,Dratini,Dratini,Minidraco,ミニリュウ,Miniryu,미뇽,Minyong
+148,Dragonir,Dragonair,Draco,ハクリュー,Hakuryu,신뇽,Sinnyong
+149,Dragoran,Dragonite,Dracolosse,カイリュー,Kairyu,망나뇽,Mangnanyong
+150,Mewtu,Mewtwo,Mewtwo,ミュウツー,Mewtwo,뮤츠,Myucheu
+151,Mew,Mew,Mew,ミュウ,Mew,뮤,Myu
