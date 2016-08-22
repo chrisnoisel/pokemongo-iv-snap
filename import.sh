@@ -3,6 +3,20 @@
 DIR=$(dirname "$0")
 IMG="$DIR/screen.png"
 
+while getopts "f:h" option
+do
+    case $option in
+        f)
+					IMG=$OPTARG
+					echo "You selected the file $OPTARG"
+					;;
+				h)
+					echo "-f [screenshot_path] 		Select any png on your computer to get IVs"
+					exit 0
+    		;;
+    esac
+done
+
 if [ ! -n "$(which bc)" ]
 then
 	echo "error: this script requires bc." 1>&2
