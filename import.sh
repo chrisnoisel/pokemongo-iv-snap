@@ -1,6 +1,24 @@
 #!/bin/bash
 
-DIR=$(dirname "$0")
+function abspath() { #https://superuser.com/questions/205127/how-to-retrieve-the-absolute-path-of-an-arbitrary-file-from-the-os-x
+	pushd . > /dev/null; 
+	if [ -d "$1" ]; 
+	then 
+		cd "$1"; dirs -l +0; 
+	else 
+		cd "`dirname \"$1\"`"; 
+		cur_dir=`dirs -l +0`; 
+		if [ "$cur_dir" == "/" ]; 
+		then 
+			echo "$cur_dir`basename \"$1\"`"; 
+		else 
+			echo "$cur_dir/`basename \"$1\"`"; 
+		fi; 
+	fi; 
+	popd > /dev/null;
+}
+
+DIR=$(abspath $(dirname "$0"))
 IMG="$DIR/screen.png"
 
 while getopts "f:h" option
@@ -76,10 +94,10 @@ fi
 
 CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 99%,100% -negate png:- | tesseract -c tessedit_char_whitelist=cpCP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
 
-HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
+HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -c tessedit_char_whitelist=HP/0123456789 -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
 dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
 pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d "0123456789+")
-pkmID=$(grep -Ei ",$pkmName($|,)" "$DIR/pkmns" | cut -d "," -f 1)
+pkmID=$(grep -Ei ",$(echo "$pkmName" | sed "s/?/\\\?/g")($|,)" "$DIR/pkmns" | cut -d "," -f 1)
 
 echo "$pkmName id:$pkmID cp:$CP hp:$HP dust:$dust"
 
