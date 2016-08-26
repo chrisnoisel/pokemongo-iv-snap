@@ -16,7 +16,6 @@ do
 					if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
 					then
 						echo "Your screen is for $OPTARG"
-						convert $IMG -resize 500x1050\! $DIR/resize.png 
 						IMG="$DIR/resize.png"
 						TEMPLATE="template_iphone6.svg"	
 						CROPS="crops_iphone6"
@@ -102,9 +101,4 @@ then
 	nohup xdg-open "$URL" 2>>/dev/null &
 else
 	open "$URL"
-fi
-
-if [ -e "$DIR/resize.png" ]
-then
-	rm $DIR/resize.png
 fi
