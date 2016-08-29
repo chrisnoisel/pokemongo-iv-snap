@@ -21,7 +21,6 @@ function abspath() { #https://superuser.com/questions/205127/how-to-retrieve-the
 DIR=$(abspath $(dirname "$0"))
 IMG="$DIR/screen.png"
 TEMPLATE="template.svg"
-CROPS="crops"
 
 while getopts "f:m:h" option
 do
@@ -34,9 +33,7 @@ do
 					if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
 					then
 						echo "Your screen is for $OPTARG"
-						IMG="$DIR/resize.png"
 						TEMPLATE="template_iphone6.svg"	
-						CROPS="crops_iphone6"
 					fi
 					;;
 				h)
@@ -64,7 +61,7 @@ fi
 function init
 {
 	rects="rectCP rectHP rectDust rectPkmName"
-
+	echo "$TEMPLATE"
 	for r in $rects
 	do
 		echo ">" $r 1>&2
@@ -76,7 +73,6 @@ x$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -H)\
 	done
 }
 
-#####
 
 if [ ! -n "$(which adb)" ]
 then
@@ -94,17 +90,18 @@ fi
 #inkscape -z -f "$(pwd)/template.svg" -i rectDust -e "$(pwd)/dust.png" 1>>/dev/null
 #inkscape -z -f "$(pwd)/template.svg" -i rectPkmName -e "$(pwd)/pkmnName.png" 1>>/dev/null
 
-if [ ! -e "$DIR/$CROPS" ]
+CROPS_HEADER=$(head -n 1 $DIR/crops)
+if [ ! -e "$DIR/crops" ] || [ "$CROPS_HEADER" != "$TEMPLATE" ]
 then
-	echo "generating $DIR/$CROPS ..."
-	init  > "$DIR/$CROPS"
+	echo "generating $DIR/crops ..."
+	init  > "$DIR/crops"
 fi
 
-# crop -> grayscale -> levels -> negate
+#crop->grayscale->levels->negate
 
 
-
-HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -c tessedit_char_whitelist=HP/0123456789 -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
+CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 99%,100% -negate png:- | tesseract -c tessedit_char_whitelist=cpCP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
+HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -c tessedit_char_whitelist=HPV/0123456789 -psm 8 - - 2>>/dev/null | grep [a-zA-Z] | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
 dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
 pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d "0123456789+")
 pkmID=$(grep -Ei ",$(echo "$pkmName" | sed "s/?/\\\?/g")($|,)" "$DIR/pkmns" | cut -d "," -f 1)
