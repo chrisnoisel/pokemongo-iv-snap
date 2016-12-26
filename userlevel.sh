@@ -18,10 +18,10 @@ ca="52357.9848"
 cb="1337.885703"
 
 l=1
-while [ $l -le $lvl ]
+while [ $l -le $(( $lvl + 2 )) ]
 do
 
-	a=$(echo "(sqrt( (($l-1)/($lvl + 3)) * $ca + $cb) - sqrt($cb)) * 3.141592 / 180.0 " | bc -l)
+	a=$(echo "sqrt( (($l-1)/($lvl + 1)) ) * 3.141592" | bc -l)
 	
 	#echo "($l-1)/($lvl + 3)" | bc -l
 	#echo "sqrt( (($l-1)/($lvl + 3)) * $ca + $cb) - sqrt($cb)" | bc -l
@@ -43,7 +43,7 @@ do
 	
 	out="$out"'
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.7"
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.7"
        d="m '$x','$y' '$w','$h'"
        id="path3427"
        inkscape:connector-curvature="0" />'

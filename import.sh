@@ -74,7 +74,7 @@ elif [ $(adb devices | grep -E "^[a-f0-9]{16}" | wc -l) -lt 1 ]
 then
 	echo "no device attached." 1>&2
 else
-	adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > "$DIR/screen.png"
+	adb shell screencap -p > "$DIR/screen.png"
 fi
 
 # old extract method, but ImageMagick is faster than Inkscape
@@ -101,7 +101,7 @@ pkmID=$(grep -Ei ",$(echo "$pkmName" | sed "s/?/\\\?/g")($|,)" "$DIR/pkmns" | cu
 
 echo "$pkmName id:$pkmID cp:$CP hp:$HP dust:$dust"
 
-URL="https://pokemon.gameinfo.io/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
+URL="https://pokemon.gameinfo.io/en/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
 
 if [ -n "$(which iceweasel)" ]
 then
