@@ -7,8 +7,8 @@ You may need to adapt the script to match your setup, currently it works fine on
 Tested with the english version of the game but other lnguages should work too. A few pokemon animations (like Gastly) tends to mask the CP value, so tesseract might not work properly in thoses cases.
 
 use :
-* ./userlevel.sh <<your trainer level>> : automatically edits template.svg to display the units on the pokemon level arc.
-* ./import.sh : screenshot/extract/show the data
+* ./userlevel.sh \<your trainer level\> : automatically edits template.svg to display the units on the pokemon level arc.
+* ./import.sh [-f screenshot_path] [-m iphone6|iphone6s] [-h] : screenshot/extract/show the data
 
 files :
 * template.svg : display an overlay on the screenshot to show the pokemon's level. Currenty there is a an increasingly error offset as the user level goes up, more maths are needed to get a perfect match. This files also defines the areas where the useful bits of information need to be extracted. My phone screen is 1080x1920, you might need to adjust (Inkscape) if yours is different.
