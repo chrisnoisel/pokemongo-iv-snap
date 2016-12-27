@@ -1,15 +1,14 @@
 # pokemongo-iv-snap
 Grab pokemon data on an android device, no MITM involved, probably ToS compliant :p
 
-This script takes a screenshot on a connected Android phone (thanks to adb, works through USB or wifi !), extracts the data with tesseract, displays the possible IVs (iceweasel), the pokemon level can also be determined with ./template.svg
-You may need to adapt the script to match your setup, currently it works fine on linux and partially on osx.
+This script takes a screenshot on a Android phone with adb (USB or wifi !), extracts the data with OCR (tesseract), displays the the stats on your web browser. The pokemon level can also be determined with ./template.svg
+You may need to adapt the script to match your setup, currently it works fine on linux and partially on osx (POSIX stuff).
 
-Works with the english version of the game (pokemon names change with language) but you can edit or replace the ./pkmns file if needed.
-A few pokemon animations (like Gastly) tends to mask the CP value, so tesseract might not work properly in thoses cases.
+Tested with the english version of the game but other lnguages should work too. A few pokemon animations (like Gastly) tends to mask the CP value, so tesseract might not work properly in thoses cases.
 
 use :
-* ./userlevel.sh <your user level> : automatically edits template.svg to display the units on the pokemon level arc.
-* ./import.sh : does the main job
+* ./userlevel.sh <your trainer level> : automatically edits template.svg to display the units on the pokemon level arc.
+* ./import.sh : screenshot/extract/show the data
 
 files :
 * template.svg : display an overlay on the screenshot to show the pokemon's level. Currenty there is a an increasingly error offset as the user level goes up, more maths are needed to get a perfect match. This files also defines the areas where the useful bits of information need to be extracted. My phone screen is 1080x1920, you might need to adjust (Inkscape) if yours is different.
