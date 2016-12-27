@@ -20,13 +20,21 @@ function abspath() { #https://superuser.com/questions/205127/how-to-retrieve-the
 
 DIR=$(abspath $(dirname "$0"))
 IMG="$DIR/screen.png"
+TEMPLATE="template.svg"
 
-while getopts "f:h" option
+while getopts "f:m:h" option
 do
     case $option in
         f)
 					IMG=$OPTARG
 					echo "You selected the file $OPTARG"
+					;;
+				m)
+					if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
+					then
+						echo "Your screen is for $OPTARG"
+						TEMPLATE="template_iphone6.svg"	
+					fi
 					;;
 				h)
 					echo "-f [screenshot_path] 		Select any png on your computer to get IVs"
@@ -53,19 +61,18 @@ fi
 function init
 {
 	rects="rectCP rectHP rectDust rectPkmName"
-
+	echo "$TEMPLATE"
 	for r in $rects
 	do
 		echo ">" $r 1>&2
 		echo $r \
-$(inkscape -z -f "$DIR/template.svg" -I $r -W)\
-x$(inkscape -z -f "$DIR/template.svg" -I $r -H)\
-+$(inkscape -z -f "$DIR/template.svg" -I $r -X)\
-+$(inkscape -z -f "$DIR/template.svg" -I $r -Y)
+$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -W)\
+x$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -H)\
++$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -X)\
++$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -Y)
 	done
 }
 
-#####
 
 if [ ! -n "$(which adb)" ]
 then
@@ -83,18 +90,18 @@ fi
 #inkscape -z -f "$(pwd)/template.svg" -i rectDust -e "$(pwd)/dust.png" 1>>/dev/null
 #inkscape -z -f "$(pwd)/template.svg" -i rectPkmName -e "$(pwd)/pkmnName.png" 1>>/dev/null
 
-if [ ! -e "$DIR/crops" ]
+CROPS_HEADER=$(head -n 1 $DIR/crops)
+if [ ! -e "$DIR/crops" ] || [ "$CROPS_HEADER" != "$TEMPLATE" ]
 then
 	echo "generating $DIR/crops ..."
 	init  > "$DIR/crops"
 fi
 
-# crop -> grayscale -> levels -> negate
+#crop->grayscale->levels->negate
 
 
 CP=$(convert "$IMG" -crop $(grep rectCP "$DIR/crops" | cut -d " " -f 2) -modulate 100,0 -level 99%,100% -negate png:- | tesseract -c tessedit_char_whitelist=cpCP0123456789 -psm 8 - - 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
-
-HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -c tessedit_char_whitelist=HP/0123456789 -psm 8 - - 2>>/dev/null | grep HP  | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
+HP=$(convert $IMG -crop $(grep rectHP "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -c tessedit_char_whitelist=HPV/0123456789 -psm 8 - - 2>>/dev/null | grep [a-zA-Z] | tr "oO" "00" | grep -Eo "/[0-9]+" | tr -d "/")
 dust=$(convert $IMG -crop $(grep rectDust "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - digits 2>>/dev/null | head -n 1 | grep -Eo "[0-9]+")
 pkmName=$(convert $IMG -crop $(grep rectPkmName "$DIR/crops" | cut -d " " -f 2) png:- | tesseract -psm 8 - - 2>>/dev/null | head -n 1 | tr "|" "l" | tr -d "0123456789+")
 pkmID=$(grep -Ei ",$(echo "$pkmName" | sed "s/?/\\\?/g")($|,)" "$DIR/pkmns" | cut -d "," -f 1)
@@ -103,12 +110,9 @@ echo "$pkmName id:$pkmID cp:$CP hp:$HP dust:$dust"
 
 URL="https://pokemon.gameinfo.io/en/tools/iv-calculator#$pkmID,$CP,$HP,$dust,1"
 
-if [ -n "$(which iceweasel)" ]
+if [ -n "$(which xdg-open)" ]
 then
-	iceweasel "$URL" 2>>/dev/null
-elif [ -x /Applications/Chromium.app/Contents/MacOS/Chromium ]
-then
-	/Applications/Chromium.app/Contents/MacOS/Chromium "$URL"
+	nohup xdg-open "$URL" 2>>/dev/null &
 else
-	echo "$URL"
+	open "$URL"
 fi
