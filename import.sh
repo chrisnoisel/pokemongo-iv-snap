@@ -26,19 +26,19 @@ while getopts "f:m:h" option
 do
     case $option in
         f)
-					IMG=$OPTARG
-					echo "You selected the file $OPTARG"
-					;;
-				m)
-					if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
-					then
-						echo "Your screen is for $OPTARG"
-						TEMPLATE="template_iphone6.svg"	
-					fi
-					;;
-				h)
-					echo "-f [screenshot_path] 		Select any png on your computer to get IVs"
-					exit 0
+			IMG=$OPTARG
+			echo "You selected screenshot file $OPTARG." >&2
+			;;
+		m)
+			if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
+			then
+				echo "Your selected $OPTARG screen size." >&2
+				TEMPLATE="template_iphone6.svg"	
+			fi
+			;;
+		h)
+			echo "import.sh [-f screenshot_path] [-m iphone6|iphone6s]"
+			exit 0
     		;;
     esac
 done
@@ -46,16 +46,19 @@ done
 if [ ! -n "$(which bc)" ]
 then
 	echo "error: this script requires bc." 1>&2
+	exit 0
 fi
 
 if [ ! -n "$(which convert)" ]
 then
 	echo "error: this script requires convert (imagemagick)." 1>&2
+	exit 0
 fi
 
 if [ ! -n "$(which tesseract)" ]
 then
 	echo "error: this script requires tesseract." 1>&2
+	exit 0
 fi
 
 function init
@@ -90,8 +93,7 @@ fi
 #inkscape -z -f "$(pwd)/template.svg" -i rectDust -e "$(pwd)/dust.png" 1>>/dev/null
 #inkscape -z -f "$(pwd)/template.svg" -i rectPkmName -e "$(pwd)/pkmnName.png" 1>>/dev/null
 
-CROPS_HEADER=$(head -n 1 $DIR/crops)
-if [ ! -e "$DIR/crops" ] || [ "$CROPS_HEADER" != "$TEMPLATE" ]
+if [ ! -e "$DIR/crops" ] || [ "$(head -n 1 $DIR/crops)" != "$TEMPLATE" ]
 then
 	echo "generating $DIR/crops ..."
 	init  > "$DIR/crops"
