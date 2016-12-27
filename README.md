@@ -7,7 +7,7 @@ You may need to adapt the script to match your setup, currently it works fine on
 Tested with the english version of the game but other lnguages should work too. A few pokemon animations (like Gastly) tends to mask the CP value, so tesseract might not work properly in thoses cases.
 
 use :
-* ./userlevel.sh \<your trainer level\> : automatically edits template.svg to display the units on the pokemon level arc.
+* ./userlevel.sh \<your trainer level\> [template_iphone6.svg] : automatically edits template.svg to display the units on the pokemon level arc.
 * ./import.sh [-f screenshot_path] [-m iphone6|iphone6s] [-h] : screenshot/extract/show the data
 
 files :

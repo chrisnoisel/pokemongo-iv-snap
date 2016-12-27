@@ -21,6 +21,7 @@ function abspath() { #https://superuser.com/questions/205127/how-to-retrieve-the
 DIR=$(abspath $(dirname "$0"))
 IMG="$DIR/screen.png"
 TEMPLATE="template.svg"
+USEADB=1
 
 while getopts "f:m:h" option
 do
@@ -33,15 +34,22 @@ do
 			if [ "{$OPTARG,,}"="iphone6" ] || [ "{$OPTARG,,}"="iphone6s" ]
 			then
 				echo "Your selected $OPTARG screen size." >&2
-				TEMPLATE="template_iphone6.svg"	
+				TEMPLATE="template_iphone6.svg"
+				USEADB=0
 			fi
 			;;
 		h)
-			echo "import.sh [-f screenshot_path] [-m iphone6|iphone6s]"
+			echo "$0 [-f screenshot_path] [-m iphone6|iphone6s]"
 			exit 0
     		;;
     esac
 done
+
+if [ $USEADB -eq 1 ] && [ ! -n "$(which adb)" ]
+then
+	echo "error: this script requires adb." 1>&2
+	exit 0
+fi
 
 if [ ! -n "$(which bc)" ]
 then
@@ -76,15 +84,14 @@ x$(inkscape -z -f "$DIR/$TEMPLATE" -I $r -H)\
 	done
 }
 
-
-if [ ! -n "$(which adb)" ]
+if [ $USEADB -eq 1 ]
 then
-	echo "adb not present, using $DIR/screen.png" 1>&2
-elif [ $(adb devices | grep -E "^[a-f0-9]{16}" | wc -l) -lt 1 ]
-then
-	echo "no device attached." 1>&2
-else
-	adb shell screencap -p > "$DIR/screen.png"
+	if [ $(adb devices | grep -E "^[a-f0-9]{16}" | wc -l) -lt 1 ]
+	then
+		echo "no device attached." 1>&2
+	else
+		adb shell screencap -p > "$IMG"
+	fi
 fi
 
 # old extract method, but ImageMagick is faster than Inkscape
