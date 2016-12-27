@@ -14,6 +14,7 @@ function cpm
 lvl=$1
 
 sed -i '/anchor1/,/anchor2/{//!d}' template.svg
+sed -r -i "s/Trainer level : [0-9]+/Trainer level : $lvl/" template.svg
 
 tpl='    <rect
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
